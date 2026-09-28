@@ -1,0 +1,29 @@
+name: Publicar Pata+ PWA
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar arquivos do projeto
+        run: |
+          curl -fL --retry 3 "https://patamais-petshop.enzogadelha59.chatgpt.site/source.zip" -o source.zip
+          unzip -o source.zip
+          rm source.zip
+
+      - name: Publicar no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/bootstrap.yml
+          git add -A
+          git commit -m "Publica site PWA completo"
+          git push origin HEAD:main
