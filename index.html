@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#153e3a">
+  <meta name="description" content="Pata+ Petshop: produtos selecionados, banho e tosa e cuidado de verdade para seu pet.">
+  <title>Pata+ Petshop — cuidado de verdade</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">Entrega grátis em São Paulo para compras acima de R$ 149</div>
+
+  <header class="site-header" id="inicio">
+    <a class="brand" href="#inicio" aria-label="Pata+ Petshop — início">
+      <span class="brand-mark" aria-hidden="true">P+</span>
+      <span>Pata<span>+</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#produtos">Produtos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#app">Baixar app</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <button class="ghost-button install-trigger" type="button" aria-label="Instalar aplicativo">Instalar app</button>
+      <button class="cart-button" id="open-cart" type="button" aria-label="Abrir carrinho">
+        <span aria-hidden="true">Sacola</span>
+        <span class="cart-count" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="assets/hero-pets.jpg" alt="Um cachorro golden retriever e um gato cinza juntos em um petshop moderno">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">PETSHOP • BANHO & TOSA</p>
+        <h1 id="hero-title">Cuidado de verdade,<br>do focinho à cauda.</h1>
+        <p>Produtos escolhidos com carinho e serviços que respeitam o tempo do seu melhor amigo.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#produtos">Ver produtos</a>
+          <button class="secondary-button booking-trigger" type="button">Agendar banho</button>
+        </div>
+      </div>
+      <div class="hero-note">
+        <span class="status-dot"></span>
+        <div><strong>Agenda aberta</strong><span>Horários para esta semana</span></div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Diferenciais">
+      <div><span>01</span><p><strong>Entrega rápida</strong>Receba no mesmo dia*</p></div>
+      <div><span>02</span><p><strong>Seleção cuidadosa</strong>Marcas que a gente confia</p></div>
+      <div><span>03</span><p><strong>Cuidado gentil</strong>Profissionais especializados</p></div>
+    </section>
+
+    <section class="section products-section" id="produtos" aria-labelledby="products-title">
+      <div class="section-heading">
+        <div><p class="eyebrow dark">ESCOLHAS DA SEMANA</p><h2 id="products-title">Favoritos dos pets</h2></div>
+        <div class="filters" aria-label="Filtrar produtos">
+          <button class="filter active" type="button" data-filter="todos">Todos</button>
+          <button class="filter" type="button" data-filter="cachorros">Cachorros</button>
+          <button class="filter" type="button" data-filter="gatos">Gatos</button>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card" data-category="cachorros">
+          <div class="product-visual coral"><span aria-hidden="true">🥩</span><small>Mais vendido</small></div>
+          <div class="product-info"><p class="product-meta">Alimentação • Cães</p><h3>Ração Natural Premium</h3><p class="price"><strong>R$ 139,90</strong><span>3 kg</span></p><button class="add-button" type="button" data-name="Ração Natural Premium" data-price="139.90">Adicionar</button></div>
+        </article>
+        <article class="product-card" data-category="gatos">
+          <div class="product-visual gold"><span aria-hidden="true">🪶</span><small>Novo</small></div>
+          <div class="product-info"><p class="product-meta">Brinquedos • Gatos</p><h3>Varinha Nuvem</h3><p class="price"><strong>R$ 34,90</strong><span>unidade</span></p><button class="add-button" type="button" data-name="Varinha Nuvem" data-price="34.90">Adicionar</button></div>
+        </article>
+        <article class="product-card" data-category="cachorros">
+          <div class="product-visual teal"><span aria-hidden="true">🦴</span></div>
+          <div class="product-info"><p class="product-meta">Petiscos • Cães</p><h3>Biscoitos Crocantes</h3><p class="price"><strong>R$ 24,90</strong><span>250 g</span></p><button class="add-button" type="button" data-name="Biscoitos Crocantes" data-price="24.90">Adicionar</button></div>
+        </article>
+        <article class="product-card" data-category="gatos">
+          <div class="product-visual blue"><span aria-hidden="true">🐟</span></div>
+          <div class="product-info"><p class="product-meta">Higiene • Gatos</p><h3>Areia Biodegradável</h3><p class="price"><strong>R$ 59,90</strong><span>4 kg</span></p><button class="add-button" type="button" data-name="Areia Biodegradável" data-price="59.90">Adicionar</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="services-section" id="servicos" aria-labelledby="services-title">
+      <div class="services-intro"><p class="eyebrow">CUIDADO SEM PRESSA</p><h2 id="services-title">Eles sentem quando é carinho.</h2><p>Banho e tosa com atenção individual, produtos suaves e acompanhamento do começo ao fim.</p><button class="primary-button light booking-trigger" type="button">Escolher um horário</button></div>
+      <div class="service-list">
+        <article><span>01</span><div><h3>Banho essencial</h3><p>Banho, secagem, escovação e limpeza das orelhas.</p></div><strong>A partir de R$ 55</strong></article>
+        <article><span>02</span><div><h3>Tosa completa</h3><p>Acabamento pensado para o conforto e a rotina do pet.</p></div><strong>A partir de R$ 85</strong></article>
+        <article><span>03</span><div><h3>Dia de spa</h3><p>Hidratação, banho, tosa higiênica e cuidado das patinhas.</p></div><strong>A partir de R$ 119</strong></article>
+      </div>
+    </section>
+
+    <section class="app-section" id="app" aria-labelledby="app-title">
+      <div class="app-copy">
+        <p class="eyebrow dark">PATA+ NO SEU DISPOSITIVO</p>
+        <h2 id="app-title">Seu petshop a um toque de distância.</h2>
+        <p>Instale o Pata+ como aplicativo no Android, iPhone ou computador. É rápido, leve e funciona até com conexão instável.</p>
+        <div class="app-actions">
+          <button class="primary-button install-trigger" type="button">Instalar aplicativo</button>
+          <button class="text-button" id="show-install-help" type="button">Como instalar?</button>
+        </div>
+        <p class="compatibility">Compatível com Android, iOS, Windows e macOS.</p>
+      </div>
+      <div class="phone-mockup" aria-hidden="true">
+        <div class="phone-top"></div>
+        <div class="mini-brand"><span>P+</span>Pata+</div>
+        <p>Olá, tudo bem?</p><h3>O que seu pet precisa hoje?</h3>
+        <div class="mini-categories"><span>Rações</span><span>Brinquedos</span></div>
+        <div class="mini-card"><b>Entrega rápida</b><small>Chega ainda hoje*</small></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contato">
+      <p class="eyebrow dark">FALE COM A GENTE</p><h2>Uma equipe que ama ouvir sobre pets.</h2>
+      <div class="contact-grid"><div><span>VISITE</span><p>São Paulo — SP<br>Seg a sáb, das 9h às 19h</p></div><div><span>CONVERSE</span><p>(11) 99999-0000<br>oi@patamais.com.br</p></div><button class="secondary-button dark booking-trigger" type="button">Agendar serviço</button></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#inicio"><span class="brand-mark">P+</span><span>Pata<span>+</span></span></a><p>Feito para quem trata pet como família.</p><p>© 2026 Pata+ Petshop</p></footer>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow dark">SUA COMPRA</p><h2 id="cart-title">Sacola</h2></div><button class="icon-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button></div>
+    <div class="cart-items" id="cart-items"><div class="empty-cart"><span>＋</span><h3>Sua sacola está vazia</h3><p>Escolha algo especial para o seu pet.</p></div></div>
+    <div class="cart-summary"><div><span>Total</span><strong id="cart-total">R$ 0,00</strong></div><button class="primary-button full" id="checkout" type="button" disabled>Finalizar pelo WhatsApp</button></div>
+  </aside>
+
+  <dialog class="modal" id="booking-modal">
+    <button class="icon-button modal-close" type="button" aria-label="Fechar">×</button>
+    <p class="eyebrow dark">AGENDAMENTO</p><h2>Vamos cuidar do seu pet?</h2><p>Preencha os dados e nossa equipe confirma o melhor horário.</p>
+    <form id="booking-form"><label>Seu nome<input name="name" autocomplete="name" required placeholder="Como podemos te chamar?"></label><label>Nome do pet<input name="pet" required placeholder="Nome do seu melhor amigo"></label><label>Serviço<select name="service"><option>Banho essencial</option><option>Tosa completa</option><option>Dia de spa</option></select></label><label>Melhor dia<input name="date" type="date" required></label><button class="primary-button full" type="submit">Solicitar agendamento</button></form>
+  </dialog>
+
+  <dialog class="modal" id="install-modal">
+    <button class="icon-button modal-close" type="button" aria-label="Fechar">×</button><p class="eyebrow dark">INSTALAR PATA+</p><h2>Leve o petshop com você</h2>
+    <div class="install-steps"><div><span>Android</span><p>No Chrome, toque em ⋮ e depois em “Instalar aplicativo”.</p></div><div><span>iPhone</span><p>No Safari, toque em Compartilhar e escolha “Adicionar à Tela de Início”.</p></div><div><span>Computador</span><p>No Chrome ou Edge, clique no ícone de instalação na barra de endereço.</p></div></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
