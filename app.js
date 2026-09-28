@@ -90,18 +90,41 @@ window.addEventListener('beforeinstallprompt', (event) => {
   installPrompt = event;
 });
 
-document.querySelectorAll('.install-trigger').forEach((button) => button.addEventListener('click', async () => {
+async function installOnComputer() {
   if (installPrompt) {
+    if (installModal.open) installModal.close();
     installPrompt.prompt();
     const choice = await installPrompt.userChoice;
     if (choice.outcome === 'accepted') showToast('Pata+ instalado com sucesso!');
     installPrompt = null;
   } else {
-    installModal.showModal();
+    if (!installModal.open) installModal.showModal();
+    showToast('No Chrome ou Edge, use o ícone de instalação na barra de endereço.');
   }
-}));
+}
 
-document.querySelector('#show-install-help').addEventListener('click', () => installModal.showModal());
+async function installOnIphone() {
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isIOS && navigator.share) {
+    if (installModal.open) installModal.close();
+    try {
+      await navigator.share({ title: 'Pata+', text: 'Instale o Pata+ no seu iPhone', url: window.location.href });
+      showToast('Agora toque em “Adicionar à Tela de Início”.');
+    } catch (error) {
+      if (error.name !== 'AbortError') showToast('No Safari, toque em Compartilhar e em “Adicionar à Tela de Início”.');
+    }
+  } else {
+    if (!installModal.open) installModal.showModal();
+    showToast('No iPhone, abra no Safari e toque em Compartilhar.');
+  }
+}
+
+document.querySelectorAll('.install-trigger').forEach((button) => button.addEventListener('click', installOnComputer));
+document.querySelectorAll('.ios-install-trigger').forEach((button) => button.addEventListener('click', installOnIphone));
+
+document.querySelector('#show-install-help').addEventListener('click', () => {
+  if (!installModal.open) installModal.showModal();
+});
 
 window.addEventListener('appinstalled', () => showToast('Pata+ já está no seu dispositivo!'));
 if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));

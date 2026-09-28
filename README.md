@@ -14,7 +14,7 @@ Site moderno de petshop desenvolvido como PWA (Progressive Web App).
 
 ## Como instalar
 
-No Android, use o botão **Baixar APK para Android**. No computador, abra o site no Chrome ou Edge e use **Instalar no computador**. No iPhone, abra pelo Safari, toque em **Compartilhar** e escolha **Adicionar à Tela de Início**.
+O site possui três botões separados. No Android, use **Android — Baixar APK**. No computador, use **Computador — Instalar** no Chrome ou Edge. No iPhone, use **iPhone — Instalar** pelo Safari e escolha **Adicionar à Tela de Início** no menu de compartilhamento.
 
 ## Estrutura PWA
 
