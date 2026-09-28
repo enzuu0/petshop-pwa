@@ -9,6 +9,8 @@ const checkout = document.querySelector('#checkout');
 const toast = document.querySelector('#toast');
 const bookingModal = document.querySelector('#booking-modal');
 const installModal = document.querySelector('#install-modal');
+const computerInstallModal = document.querySelector('#computer-install-modal');
+const iphoneInstallModal = document.querySelector('#iphone-install-modal');
 let installPrompt = null;
 
 function showToast(message) {
@@ -98,8 +100,8 @@ async function installOnComputer() {
     if (choice.outcome === 'accepted') showToast('Pata+ instalado com sucesso!');
     installPrompt = null;
   } else {
-    if (!installModal.open) installModal.showModal();
-    showToast('No Chrome ou Edge, use o ícone de instalação na barra de endereço.');
+    if (installModal.open) installModal.close();
+    if (!computerInstallModal.open) computerInstallModal.showModal();
   }
 }
 
@@ -114,8 +116,8 @@ async function installOnIphone() {
       if (error.name !== 'AbortError') showToast('No Safari, toque em Compartilhar e em “Adicionar à Tela de Início”.');
     }
   } else {
-    if (!installModal.open) installModal.showModal();
-    showToast('No iPhone, abra no Safari e toque em Compartilhar.');
+    if (installModal.open) installModal.close();
+    if (!iphoneInstallModal.open) iphoneInstallModal.showModal();
   }
 }
 
@@ -126,6 +128,17 @@ document.querySelector('#show-install-help').addEventListener('click', () => {
   if (!installModal.open) installModal.showModal();
 });
 
+document.querySelectorAll('.copy-install-link').forEach((button) => button.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText('https://enzuu0.github.io/petshop-pwa/');
+    const original = button.textContent;
+    button.textContent = 'Endereço copiado ✓';
+    setTimeout(() => { button.textContent = original; }, 1800);
+  } catch {
+    button.textContent = 'https://enzuu0.github.io/petshop-pwa/';
+  }
+}));
+
 window.addEventListener('appinstalled', () => showToast('Pata+ já está no seu dispositivo!'));
-if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { scope: './' }));
 renderCart();

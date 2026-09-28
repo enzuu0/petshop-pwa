@@ -1,6 +1,8 @@
 {
   "name": "Pata+ Petshop",
   "short_name": "Pata+",
+  "id": "./",
+  "lang": "pt-BR",
   "description": "Produtos, banho e tosa e cuidado para o seu pet.",
   "start_url": "./",
   "scope": "./",
@@ -8,6 +10,7 @@
   "background_color": "#f5f3ec",
   "theme_color": "#153e3a",
   "orientation": "portrait-primary",
+  "prefer_related_applications": false,
   "icons": [
     { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
     { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }

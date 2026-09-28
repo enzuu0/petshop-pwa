@@ -16,6 +16,8 @@ Site moderno de petshop desenvolvido como PWA (Progressive Web App).
 
 O site possui três botões separados. No Android, use **Android — Baixar APK**. No computador, use **Computador — Instalar** no Chrome ou Edge. No iPhone, use **iPhone — Instalar** pelo Safari e escolha **Adicionar à Tela de Início** no menu de compartilhamento.
 
+Quando o navegador não oferece a janela automática de instalação, o site mostra instruções específicas para Chrome, Edge ou Safari e permite abrir ou copiar o endereço correto.
+
 ## Estrutura PWA
 
 - `manifest.json`: nome, cores e ícones do aplicativo;
