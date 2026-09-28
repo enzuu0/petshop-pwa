@@ -11,6 +11,7 @@ const bookingModal = document.querySelector('#booking-modal');
 const installModal = document.querySelector('#install-modal');
 const computerInstallModal = document.querySelector('#computer-install-modal');
 const iphoneInstallModal = document.querySelector('#iphone-install-modal');
+const promptComputerInstallButton = document.querySelector('#prompt-computer-install');
 let installPrompt = null;
 
 function showToast(message) {
@@ -90,19 +91,28 @@ checkout.addEventListener('click', () => {
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
   installPrompt = event;
+  promptComputerInstallButton.hidden = false;
 });
 
 async function installOnComputer() {
-  if (installPrompt) {
-    if (installModal.open) installModal.close();
-    installPrompt.prompt();
-    const choice = await installPrompt.userChoice;
-    if (choice.outcome === 'accepted') showToast('Pata+ instalado com sucesso!');
-    installPrompt = null;
-  } else {
-    if (installModal.open) installModal.close();
-    if (!computerInstallModal.open) computerInstallModal.showModal();
+  if (installModal.open) installModal.close();
+  promptComputerInstallButton.hidden = !installPrompt;
+  if (!computerInstallModal.open) computerInstallModal.showModal();
+}
+
+async function runComputerInstallPrompt() {
+  if (!installPrompt) {
+    showToast('Use o menu do Chrome ou Edge conforme as instruções acima.');
+    return;
   }
+  installPrompt.prompt();
+  const choice = await installPrompt.userChoice;
+  if (choice.outcome === 'accepted') {
+    computerInstallModal.close();
+    showToast('Pata+ instalado com sucesso!');
+  }
+  installPrompt = null;
+  promptComputerInstallButton.hidden = true;
 }
 
 async function installOnIphone() {
@@ -123,6 +133,7 @@ async function installOnIphone() {
 
 document.querySelectorAll('.install-trigger').forEach((button) => button.addEventListener('click', installOnComputer));
 document.querySelectorAll('.ios-install-trigger').forEach((button) => button.addEventListener('click', installOnIphone));
+promptComputerInstallButton.addEventListener('click', runComputerInstallPrompt);
 
 document.querySelector('#show-install-help').addEventListener('click', () => {
   if (!installModal.open) installModal.showModal();

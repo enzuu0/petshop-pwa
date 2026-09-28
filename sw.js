@@ -1,5 +1,5 @@
-const CACHE = 'patamais-v5';
-const APP_SHELL = ['./', 'index.html', 'styles.css?v=5', 'app.js?v=5', 'manifest.json', 'favicon.svg', 'assets/hero-pets.jpg', 'icon-192.png', 'icon-512.png'];
+const CACHE = 'patamais-v6';
+const APP_SHELL = ['./', 'index.html', 'styles.css?v=6', 'app.js?v=6', 'manifest.json', 'favicon.svg', 'assets/hero-pets.jpg', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)));
