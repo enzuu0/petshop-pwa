@@ -13,6 +13,9 @@ jobs:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
+      - name: Preparar repositório
+        uses: actions/checkout@v4
+
       - name: Baixar arquivos do projeto
         run: |
           curl -fL --retry 3 "https://patamais-petshop.enzogadelha59.chatgpt.site/source.zip" -o source.zip
@@ -23,7 +26,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          rm -f .github/workflows/bootstrap.yml
           git add -A
           git commit -m "Publica site PWA completo"
           git push origin HEAD:main
