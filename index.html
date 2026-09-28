@@ -8,7 +8,7 @@
   <title>Pata+ Petshop — cuidado de verdade</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css?v=6">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
   <div class="announcement">Entrega grátis em São Paulo para compras acima de R$ 149</div>
@@ -103,7 +103,7 @@
         <h2 id="app-title">Seu petshop a um toque de distância.</h2>
         <p>Baixe o APK no Android ou instale o Pata+ como aplicativo no iPhone e no computador. É rápido, leve e funciona até com conexão instável.</p>
         <div class="app-actions">
-          <a class="primary-button" href="https://enzuu0.github.io/petshop-pwa/PataMais.apk" download="PataMais.apk">Android — Baixar APK</a>
+          <a class="primary-button" href="./PataMais.apk" download="PataMais.apk" type="application/vnd.android.package-archive">Android — Baixar APK</a>
           <button class="secondary-button dark ios-install-trigger" type="button">iPhone — Instalar</button>
           <button class="secondary-button dark install-trigger" type="button">Computador — Instalar</button>
           <button class="text-button" id="show-install-help" type="button">Como instalar?</button>
@@ -143,7 +143,7 @@
   <dialog class="modal" id="install-modal">
     <button class="icon-button modal-close" type="button" aria-label="Fechar">×</button><p class="eyebrow dark">INSTALAR PATA+</p><h2>Leve o petshop com você</h2>
     <div class="install-steps">
-      <div><span>Android</span><p>Baixe o arquivo e, se o sistema solicitar, autorize a instalação.</p><a class="primary-button full" href="https://enzuu0.github.io/petshop-pwa/PataMais.apk" download="PataMais.apk">Baixar APK</a></div>
+      <div><span>Android</span><p>Baixe o arquivo e, se o sistema solicitar, autorize a instalação.</p><a class="primary-button full" href="./PataMais.apk" download="PataMais.apk" type="application/vnd.android.package-archive">Baixar APK</a></div>
       <div><span>iPhone</span><p>Abra pelo Safari e use o menu Compartilhar para adicionar à Tela de Início.</p><button class="secondary-button dark full ios-install-trigger" type="button">Instalar no iPhone</button></div>
       <div><span>Computador</span><p>Compatível com Chrome e Edge no Windows ou macOS.</p><button class="secondary-button dark full install-trigger" type="button">Instalar no computador</button></div>
     </div>
@@ -172,6 +172,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=6" defer></script>
+  <script src="app.js?v=7" defer></script>
 </body>
 </html>

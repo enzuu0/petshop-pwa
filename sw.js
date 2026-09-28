@@ -1,5 +1,5 @@
-const CACHE = 'patamais-v6';
-const APP_SHELL = ['./', 'index.html', 'styles.css?v=6', 'app.js?v=6', 'manifest.json', 'favicon.svg', 'assets/hero-pets.jpg', 'icon-192.png', 'icon-512.png'];
+const CACHE = 'patamais-v7';
+const APP_SHELL = ['./', 'index.html', 'styles.css?v=7', 'app.js?v=7', 'manifest.json', 'favicon.svg', 'assets/hero-pets.jpg', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)));
@@ -13,6 +13,8 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.pathname.endsWith('/PataMais.apk')) return;
   event.respondWith(
     fetch(event.request)
       .then((response) => {
